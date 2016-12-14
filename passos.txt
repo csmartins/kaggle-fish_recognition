@@ -1,0 +1,12 @@
+recortar a imagem
+branquear os recortes (zca)
+regularizar a imagem (valor de 0 a 1)
+hogueiar
+
+fazer 1 svm pra cada imagem (exemplar svm)
+para classificar aplicar uma piramide (image pyramid)
+	juntar todos os svms num feature vector e jogar no xgboost
+
+
+
+http://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
