@@ -1,0 +1,7 @@
+REFERENCIAS
+
+===== ZCA Whitening
+
+http://ufldl.stanford.edu/wiki/index.php/Whitening
+http://stackoverflow.com/questions/31528800/how-to-implement-zca-whitening-python
+https://github.com/zellyn/deeplearning-class-2011/blob/master/ufldl/pca_2d/pca_2d.py
