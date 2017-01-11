@@ -74,7 +74,7 @@ def standardize(data):
 	return (data - mean)/std
 
 # create a feature vector concatenating each image
-def generate_vector(img_path):
+def generate_hog_vector(img_path):
 	img = cv2.imread(img_path)	
 	img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)#.astype('float32')
         #hog_image = hog(img, orientations=9, pixels_per_cell=(32, 32), cells_per_block=(1, 1), visualise=False)
@@ -103,7 +103,7 @@ def get_data():
         for name in class_names:
             for file_name in os.listdir(test_folder+"/"+name):
                 if inst_count == 0:
-                    vec = generate_vector(test_folder+"/"+name+"/"+file_name)
+                    vec = generate_hog_vector(test_folder+"/"+name+"/"+file_name)
                     vec_size = vec.shape[0]
                 inst_count += 1
 
@@ -118,7 +118,7 @@ def get_data():
 		
 		# transform each file into a feature vector
 		for file_name in files:
-			vec = generate_vector(test_folder+"/"+name+"/"+file_name)
+			vec = generate_hog_vector(test_folder+"/"+name+"/"+file_name)
 			X[count] = vec
                         y[count, class_names.index(name)] = 1
 

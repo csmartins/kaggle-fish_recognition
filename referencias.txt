@@ -5,3 +5,13 @@ REFERENCIAS
 http://ufldl.stanford.edu/wiki/index.php/Whitening
 http://stackoverflow.com/questions/31528800/how-to-implement-zca-whitening-python
 https://github.com/zellyn/deeplearning-class-2011/blob/master/ufldl/pca_2d/pca_2d.py
+
+===== EXEMPLAR SVM
+https://github.com/quantombone/exemplarsvm
+https://www.analyticsvidhya.com/blog/2015/10/understaing-support-vector-machine-example-code/
+http://scikit-learn.org/stable/modules/svm.html
+http://scikit-learn.org/stable/tutorial/basic/tutorial.html
+http://people.csail.mit.edu/tomasz/papers/malisiewicz_thesis.pdf
+http://stats.stackexchange.com/questions/63028/one-class-svm-vs-exemplar-svm
+https://www.quora.com/What-are-the-application-areas-of-exemplar-SVMs
+http://pt.slideshare.net/zukun/exemplarsvm-mittalk

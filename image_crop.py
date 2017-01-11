@@ -12,6 +12,7 @@ TRAIN_DIR = 'train/'
 def crop_images(positions_file):
 	file_name = os.path.basename(positions_file)
 	class_name = file_name.upper().split('.')[0]
+
 	if not os.path.isdir(OUTPUT_DIR + class_name):
 		os.makedirs(OUTPUT_DIR + class_name)
 
