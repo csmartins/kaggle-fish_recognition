@@ -1,27 +1,28 @@
 import json
 import glob
-import os
 import cv2
-from keras.utils.generic_utils import Progbar
+from progressbar import *
+import os
 
 OUTPUT_DIR = 'cropped_train/'
 POSITIONS_DIR = 'fish_positions/'
 TRAIN_DIR = 'train/'
 
+'''A partir do json contendo a posicao dos peixes nas imagens, cria uma nova pasta com as imagens cortadas apenas nos peixes'''
 def crop_images(positions_file):
 	file_name = os.path.basename(positions_file)
 	class_name = file_name.upper().split('.')[0]
 	if not os.path.isdir(OUTPUT_DIR + class_name):
-		os.mkdir(OUTPUT_DIR + class_name)
+		os.makedirs(OUTPUT_DIR + class_name)
 
 	print("\nCropping " + file_name)
 
 	with open(positions_file) as data_file:
 		data = json.load(data_file)
 
-		progbar = Progbar(len(data))
+		progBar = ProgressBar(len(data))
 		count = 0
-		
+		progBar.start()
 		for img_data in data:
 			img_file = TRAIN_DIR + class_name + '/' + img_data['filename']
 
@@ -38,10 +39,12 @@ def crop_images(positions_file):
 				count_fishes = count_fishes + 1
 		
 			count = count + 1
-			progbar.update(count)
-				
+			progBar.update(count)
+    
+        progBar.finish()				
 
 
+'''Para cada pasta do dataset de treino chama a funcao de recortar os peixes'''
 def crop_train_dataset():
     positions_files = glob.glob(POSITIONS_DIR + '*.json')
     for position_file in positions_files:

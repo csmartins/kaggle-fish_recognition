@@ -10,3 +10,12 @@ para classificar aplicar uma piramide (image pyramid)
 
 
 http://www.pyimagesearch.com/2014/07/28/a-slic-superpixel-tutorial-using-python/
+
+
+
+==========================================
+
+PASSOS SEGUIDOS
+
+- recortar dataset de treino com posições achadas no forum
+- whitenning do dataset de treino
