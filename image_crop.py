@@ -41,7 +41,7 @@ def crop_images(positions_file):
 			count = count + 1
 			progBar.update(count)
     
-        progBar.finish()				
+        progBar.finish()
 
 
 '''Para cada pasta do dataset de treino chama a funcao de recortar os peixes'''

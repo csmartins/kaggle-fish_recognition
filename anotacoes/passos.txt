@@ -1,5 +1,5 @@
-recortar a imagem
-branquear os recortes (zca)
+recortar a imagem ====== DONE
+branquear os recortes (zca) ====== DONE
 regularizar a imagem (valor de 0 a 1)
 hogueiar
 
