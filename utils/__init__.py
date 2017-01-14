@@ -8,25 +8,36 @@ from pca_zca_whitening import *
 
 OUTPUT_DIR = 'cropped_train/'
 
+
+def get_all_images_path_train():
+    images_by_label = {}
+    for folder in os.listdir(OUTPUT_DIR):
+        folder_path = OUTPUT_DIR + folder
+        images_by_label[folder] = []
+        for img in os.listdir(folder_path):
+            img_path = folder_path + '/' + img
+            images_by_label[folder].append(img_path)
+            
+    return images_by_label
+
 '''Para todas as pastas em cropped_train ira gerar as imagens esbranquicadas.'''
 def white_all_train_folders(showImages, resizeImages):
+    images_by_label = get_all_images_path_train()
     zcas = {}
     for folder in os.listdir(OUTPUT_DIR):
         print("\nWhitening " + folder)
-        path = OUTPUT_DIR + folder
-        imgs = [path + '/' + s for s in os.listdir(path)] 
-        zca = whiten_images(imgs, showImages, resizeImages)
+        zca = whiten_images(images_by_label[folder], showImages, resizeImages)
         zcas[folder] = zca
     return zcas
     
 def hog_all_images():
+    images_by_label = get_all_images_path_train()
     images_hogged = {}    
     for folder in os.listdir(OUTPUT_DIR):
         images_hogged[folder] = []
         print "Creating hog for ", folder
-        for image in os.listdir(OUTPUT_DIR + '/' + folder):
-            image_path = OUTPUT_DIR + '/' + folder + '/' + image
-            image_vector = generate_hog_vector(image_path)
+        for image in images_by_label[folder]:
+            image_vector = generate_hog_vector(image)
             #soma = sum(image_vector)
             #normalized = np.asarray([i/soma for i in image_vector])
             #normalized = normalize(image_vector)
