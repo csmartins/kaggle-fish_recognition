@@ -19,7 +19,6 @@ def white_all_train_folders(showImages, resizeImages):
         zcas[folder] = zca
     return zcas
     
-    
 def hog_all_images():
     images_hogged = {}    
     for folder in os.listdir(OUTPUT_DIR):

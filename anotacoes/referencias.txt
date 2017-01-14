@@ -7,6 +7,15 @@ http://stackoverflow.com/questions/31528800/how-to-implement-zca-whitening-pytho
 https://github.com/zellyn/deeplearning-class-2011/blob/master/ufldl/pca_2d/pca_2d.py
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.222.9220&rep=rep1&type=pdf
 
+==== FINDING OBJECTS IN IMAGE
+http://www.pyimagesearch.com/2015/03/16/image-pyramids-with-python-and-opencv/
+http://www.pyimagesearch.com/2015/03/23/sliding-windows-for-object-detection-with-python-and-opencv/
+http://www.pyimagesearch.com/2014/11/10/histogram-oriented-gradients-object-detection/
+https://www.learnopencv.com/image-recognition-and-object-detection-part1/
+
+==== HOG
+http://scikit-image.org/docs/dev/auto_examples/plot_hog.html
+
 ===== EXEMPLAR SVM
 https://github.com/quantombone/exemplarsvm
 https://www.analyticsvidhya.com/blog/2015/10/understaing-support-vector-machine-example-code/

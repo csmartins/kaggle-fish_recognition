@@ -19,3 +19,10 @@ PASSOS SEGUIDOS
 
 - recortar dataset de treino com posições achadas no forum
 - whitenning do dataset de treino
+
+=====DETECTAR PEIXES
+-- IMAGE PYRAMID para garantir deteccao de peixes de diferentes tamanhos
+-- WINDOW SLIDING para percorrer imagem procurando o peixe (PENSAR EM TAMANHO IDEAL DA JANELA, A PARTIR DA DIMENSAO DA IMAGEM)
+-- HOG OU OUTRO para garantir que a cada janela do sliding o elemento eh um peixe
+
+=====CLASSIFICAR PEIXES
