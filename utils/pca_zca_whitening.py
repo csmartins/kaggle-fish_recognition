@@ -99,5 +99,5 @@ def shapeImageWhitened(xZCAWhite,width, height):
     return reshaped_t
     
     
-if __name__ == '__main__':
-    whiten_images(['img_07265.jpg', '0_img_00165.jpg'], True, False)
+'''if __name__ == '__main__':
+    whiten_images(['img_07265.jpg', '0_img_00165.jpg'], True, False)'''
