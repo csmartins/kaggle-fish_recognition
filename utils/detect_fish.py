@@ -27,20 +27,18 @@ def pyramid(image, scale, minSize):
 		
 '''Funcao que retorna as imagens da piramide da imagem parametro.'''
 def image_pyramid(img, showImage):
-    pyramid_imgs = []
     image = cv2.imread(img)
-    pyramid_imgs.append(image)
+    yield image
     
     for (i, resized) in enumerate(pyramid(image, 1.3, (30,30))):
         if showImage:
     	    cv2.imshow("Layer {}".format(i + 1), resized)
             cv2.waitKey(0)
-        pyramid_imgs.append(resized)
+        yield resized
     
     if showImage:
         cv2.destroyAllWindows()
         
-    return pyramid_imgs
     
 '''Funcao responsavel por criar janelas que percorrerao toda a imagem (sliding).
 Recebe como parametro a imagem, o stepSize que dira quantos pixels deverao ser movidos
@@ -58,7 +56,7 @@ def sliding_window(image, stepSize, windowSize):
                                               SERAO APAGADAS FUTURAMENTE                                                                '''
 def test_pyramid():
     print("Pyramid of " + img_test)
-    image_pyramid(img_test, True) 
+    list(image_pyramid(img_test, True))
     
 def test_sliding():
     image = cv2.imread(img_test)
@@ -79,5 +77,5 @@ def test_sliding():
        
     
 if __name__ == '__main__':
-    #test_pyramid()
-    #test_sliding()
+    test_pyramid()
+    test_sliding()
