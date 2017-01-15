@@ -4,6 +4,9 @@ regularizar a imagem (valor de 0 a 1)
 hogueiar
 
 fazer 1 svm pra cada imagem (exemplar svm)
+	2 abordagens para treinar:
+		selecionar um numero fixo de imagens de mesmo tamanho  
+		usar todas as imagens completando com zeros para todas as imagens terem o mesmo tamanho
 para classificar aplicar uma piramide (image pyramid)
 	juntar todos os svms num feature vector e jogar no xgboost
 
@@ -21,8 +24,9 @@ PASSOS SEGUIDOS
 - whitenning do dataset de treino
 
 =====DETECTAR PEIXES
--- IMAGE PYRAMID para garantir deteccao de peixes de diferentes tamanhos
--- WINDOW SLIDING para percorrer imagem procurando o peixe (PENSAR EM TAMANHO IDEAL DA JANELA, A PARTIR DA DIMENSAO DA IMAGEM)
+-- IMAGE PYRAMID para garantir deteccao de peixes de diferentes tamanhos -- DONE
+-- WINDOW SLIDING para percorrer imagem procurando o peixe (PENSAR EM TAMANHO IDEAL DA JANELA, A PARTIR DA DIMENSAO DA IMAGEM) -- DONE
+-- DECIDIR CRITERIO DE ACERTO nós temos quadrados para os peixes, mas nossa sliding window nunca vai coincidir perfeitamente. Um possível seria se 95% da sliding window E do quadrado do peixe se complementam. 95% talvez seja muito restrito.
 -- HOG OU OUTRO para garantir que a cada janela do sliding o elemento eh um peixe
 
 =====CLASSIFICAR PEIXES
