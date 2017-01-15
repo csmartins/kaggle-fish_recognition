@@ -77,12 +77,16 @@ def standardize(data):
 def generate_hog_vector(img_path):
 	img = cv2.imread(img_path)	
 	img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)#.astype('float32')
-        #hog_image = hog(img, orientations=9, pixels_per_cell=(32, 32), cells_per_block=(1, 1), visualise=False)
+	hog_image = hog(img, orientations=9, pixels_per_cell=(64, 64), cells_per_block=(1, 1), visualise=False)
         
-	hog = cv2.HOGDescriptor("hog-config.xml")
-	hog_image = hog.compute(img)
+	#hog = cv2.HOGDescriptor("hog-config.xml")
+	#print "falharei agora"
+	#hog_image = hog.compute(img)
+
+	#print "surpresa"
+
 	hog_image = standardize(hog_image)
-        return hog_image.flatten()
+	return hog_image.flatten()
 
 	#img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 	#hist_R, hist_G, hist_B = hist(img)

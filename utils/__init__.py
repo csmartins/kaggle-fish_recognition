@@ -1,10 +1,7 @@
-import numpy as np
-#from sklearn.preprocessing import normalize
-#from sklearn import svm
-
 from hist import *
 from image_crop import *
 from pca_zca_whitening import *
+from classify import *
 
 OUTPUT_DIR = 'cropped_train/'
 
