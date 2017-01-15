@@ -73,6 +73,11 @@ def standardize(data):
 	std = np.std(data)
 	return (data - mean)/std
 
+def generate_hog_descriptor(img):
+	hog_image = hog(img, orientations=9, pixels_per_cell=(64, 64), cells_per_block=(1, 1), visualise=False)
+	hog_image = standardize(hog_image)
+	return hog_image.flatten()
+        
 # create a feature vector concatenating each image
 def generate_hog_vector(img_path):
 	img = cv2.imread(img_path)	

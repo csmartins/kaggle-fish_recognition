@@ -26,6 +26,16 @@ def white_all_train_folders(showImages, resizeImages):
         zca = whiten_images(images_by_label[folder], showImages, resizeImages)
         zcas[folder] = zca
     return zcas
+
+def hog_whitened_images(images_whitened):
+    images_hogged = {}
+    for folder in images_whitened.keys():
+        images_hogged[folder] = []
+        print "Creating hog for ", folder
+        for image in images_whitened[folder]:
+            image_descriptor = generate_hog_descriptor(image)
+            images_hogged[folder].append(image_descriptor)
+    return images_hogged
     
 def hog_all_images():
     images_by_label = get_all_images_path_train()
