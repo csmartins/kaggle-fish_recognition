@@ -2,6 +2,7 @@ from hist import *
 from image_crop import *
 from pca_zca_whitening import *
 from classify import *
+from sklearn import preprocessing
 
 OUTPUT_DIR = 'cropped_train/'
 

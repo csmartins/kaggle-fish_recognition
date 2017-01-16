@@ -43,7 +43,7 @@ de cinza) NxM, onde N e M sao as dimensoes da imagem apos ter sido redimensionad
 def loadData(img):
     img_gray = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
     if resizeImages:
-        img_gray = cv2.resize(img_gray, (67, 540))
+        img_gray = cv2.resize(img_gray, (32, 32))
     
     if showImages: 
         showImage(img_gray, 'original')

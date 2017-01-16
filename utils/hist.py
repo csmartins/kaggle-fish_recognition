@@ -74,7 +74,7 @@ def standardize(data):
 	return (data - mean)/std
 
 def generate_hog_descriptor(img):
-	hog_image = hog(img, orientations=9, pixels_per_cell=(64, 64), cells_per_block=(1, 1), visualise=False)
+	hog_image = hog(img, orientations=9, pixels_per_cell=(2, 2), cells_per_block=(1, 1), visualise=False)
 	hog_image = standardize(hog_image)
 	return hog_image.flatten()
         
@@ -100,54 +100,52 @@ def generate_hog_vector(img_path):
 	#return feature_vec
 
 def get_data():
+    test_folder = "./train/"
+    class_names = os.listdir(test_folder)
 	
-	test_folder = "./train/"
-	class_names = os.listdir(test_folder)
-		
-	# processing train folder
-	print "PROCESSING TEST FOLDER: "
+    # processing train folder
+    print "PROCESSING TEST FOLDER: "
 
-        inst_count = 0
-        vec_size = None
-        for name in class_names:
-            for file_name in os.listdir(test_folder+"/"+name):
-                if inst_count == 0:
-                    vec = generate_hog_vector(test_folder+"/"+name+"/"+file_name)
-                    vec_size = vec.shape[0]
-                inst_count += 1
+    inst_count = 0
+    vec_size = None
+    for name in class_names:
+        for file_name in os.listdir(test_folder+"/"+name):
+            if inst_count == 0:
+                vec = generate_hog_vector(test_folder+"/"+name+"/"+file_name)
+                vec_size = vec.shape[0]
+            inst_count += 1
 
-        X = np.empty(shape=(inst_count, vec_size))
-        y = np.zeros(shape=(inst_count, len(class_names)))
+    X = np.empty(shape=(inst_count, vec_size))
+    y = np.zeros(shape=(inst_count, len(class_names)))
 
-        progbar = Progbar(inst_count)
+    progbar = Progbar(inst_count)
 
-        count = 0
-	for name in class_names:
-		files = os.listdir(test_folder+"/"+name)
-		
-		# transform each file into a feature vector
-		for file_name in files:
-			vec = generate_hog_vector(test_folder+"/"+name+"/"+file_name)
-			X[count] = vec
-                        y[count, class_names.index(name)] = 1
+    count = 0
+    for name in class_names:
+        files = os.listdir(test_folder+"/"+name)
 
-			count += 1
-                        progbar.update(count)
+        # transform each file into a feature vector
+        for file_name in files:
+            vec = generate_hog_vector(test_folder+"/"+name+"/"+file_name)
+            X[count] = vec
+            y[count, class_names.index(name)] = 1
+            count += 1
+            progbar.update(count)
 
-	np.random.seed(42)
-	np.random.shuffle(X)
-	np.random.seed(42)
-	np.random.shuffle(y)
+    np.random.seed(42)
+    np.random.shuffle(X)
+    np.random.seed(42)
+    np.random.shuffle(y)
 
 
-	# spliting the dataset in thee groups
-	X_train = X[:8000]
-	y_train = y[:8000]
+    # spliting the dataset in thee groups
+    X_train = X[:8000]
+    y_train = y[:8000]
 
-	X_validation = X_test = X[8000: 9000]
-	y_validation = y_test = y[8000: 9000]
+    X_validation = X_test = X[8000: 9000]
+    y_validation = y_test = y[8000: 9000]
 
-	X_test = X[9000: ]
-	y_test = y[9000: ]
+    X_test = X[9000: ]
+    y_test = y[9000: ]
         
-        return (X_train, y_train), (X_validation, y_validation), (X_test, y_test)
+    return (X_train, y_train), (X_validation, y_validation), (X_test, y_test)
