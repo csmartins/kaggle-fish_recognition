@@ -15,6 +15,8 @@ https://www.learnopencv.com/image-recognition-and-object-detection-part1/
 
 ==== HOG
 http://scikit-image.org/docs/dev/auto_examples/plot_hog.html
+https://www.learnopencv.com/image-recognition-and-object-detection-part1/
+https://www.kaggle.com/tonypoe/the-nature-conservancy-fisheries-monitoring/svm-implementation-for-nature-conservatory#
 
 ===== EXEMPLAR SVM
 https://github.com/quantombone/exemplarsvm
